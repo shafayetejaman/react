@@ -2,7 +2,7 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/NavBar/NavBar';
 import APIProvider from './context/api/api';
-import Card from './components/Card/Card';
+import { Outlet } from 'react-router-dom';
 
 
 function App()
@@ -12,7 +12,7 @@ function App()
     <>
       <APIProvider>
         <Navbar></Navbar>
-        <Card></Card>
+        <Outlet></Outlet>
       </APIProvider>
       <Footer></Footer>
     </>

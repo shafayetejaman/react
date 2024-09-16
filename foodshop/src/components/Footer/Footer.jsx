@@ -14,13 +14,13 @@ const Footer = () =>
     };
 
     return (
-        <footer className="fluid-containerc bg-gray-900 text-indigo-400 py-12">
-            <div className="px-4">
+        <footer>
+            <div className="w-full bg-gray-900 text-indigo-400 py-12 px-4">
                 <div className="flex flex-wrap justify-between items-center">
-                    <div className="md:w-1/2 mb-8 md:mb-0">
+                    <div className="md:w-1/2 mb-8 md:mb-0 text-center">
                         <h2 className="text-2xl font-bold mb-4">Stay Connected</h2>
                         <p className="mb-6">Subscribe to our newsletter for updates and exclusive offers.</p>
-                        <form onSubmit={handleSubmit} className="flex justify-center sm:flex-row">
+                        <form onSubmit={handleSubmit} className="md:flex justify-center block">
                             <input
                                 type="email"
                                 value={email}
@@ -28,19 +28,19 @@ const Footer = () =>
                                 placeholder="Enter your email"
                                 aria-label="Email address"
                                 required
-                                className="bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 sm:mb-0 w-full sm:w-auto"
+                                className="bg-gray-700 text-white px-4 py-2 sm:rounded-e-none rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 sm:mb-0 w-full sm:w-auto"
                             />
                             <button
                                 type="submit"
                                 aria-label="Subscribe"
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-r-md transition duration-300 ease-in-out flex items-center justify-center w-full sm:w-auto"
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 sm:rounded-s-none rounded-md transition duration-300 ease-in-out flex items-center justify-center w-full sm:w-auto"
                             >
                                 <FaPaperPlane className="mr-2" />
                                 Subscribe
                             </button>
                         </form>
                     </div>
-                    <div className="w-full md:w-1/2 md:text-right">
+                    <div className="w-full md:w-1/2 text-center">
                         <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
                             <li>

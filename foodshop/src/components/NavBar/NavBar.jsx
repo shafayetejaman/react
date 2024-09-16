@@ -7,7 +7,6 @@ const NavBar = () =>
 {
     const [isOpen, setIsOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
-    const [theme, setTheme] = useState('dark');
     const { category, country, ingredient } = useAPI();
 
     const navItems = [
@@ -43,7 +42,7 @@ const NavBar = () =>
 
 
     return (
-        <nav className="bg-gray-900 text-white transition-all duration-300 ease-in-out">
+        <nav className="fixed top-0 w-full bg-gray-900 text-white z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -86,7 +85,7 @@ const NavBar = () =>
                                 </div>
                                 <input
                                     type="text"
-                                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-white sm:text-sm transition-all duration-200 ease-in-out"
+                                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-white placeholder-gray-400 focus:border-white sm:text-sm transition-all duration-200 ease-in-out"
                                     placeholder="Search"
                                 />
                             </div>
