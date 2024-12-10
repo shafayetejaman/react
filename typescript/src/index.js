@@ -47,3 +47,8 @@ var kvProcessor = /** @class */ (function () {
 }());
 var proc = new kvProcessor();
 proc.process('1', 'Bill');
+var admin = {
+    name: "akash",
+    isAdmin: function () { return true; }
+};
+console.log(admin);

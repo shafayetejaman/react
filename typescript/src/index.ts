@@ -3,7 +3,7 @@ document.body.style.backgroundColor = "rgb(94, 91, 91)";
 
 
 abstract class UserTemplate
-{
+{   
     constructor(
         public name: string,
         public readonly id: number,
@@ -35,7 +35,7 @@ const user = new User("akash", 1012, "gmail.com");
 
 const div = document.querySelector('div');
 
-div?.insertAdjacentHTML("afterbegin",
+div?.insertAdjacentHTML("afterbegin", 
     `<h1 class='m-5'>${user.name}</h1>`
 
 );
@@ -43,7 +43,7 @@ div?.insertAdjacentHTML("afterbegin",
 
 interface IKeyValueProcessor<T, S>
 {
-    process(key: T, val: S): void;
+    process(key: T, val: S): void;  
 };
 
 class kvProcessor<T, U> implements IKeyValueProcessor<T, U>
@@ -60,6 +60,7 @@ proc.process('1', 'Bill');
 interface Admin
 {
     name: string;
+
     isAdmin(): boolean;
 }
 
@@ -68,4 +69,4 @@ const admin: Admin = {
     isAdmin: function () { return true; }
 };
 
-
+console.log(admin);
