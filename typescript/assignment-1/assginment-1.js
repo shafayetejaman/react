@@ -71,3 +71,8 @@ var Car = /** @class */ (function () {
 }());
 var car = new Car("Toyota", "Corolla", new Date());
 car.displayInfo();
+if ({} instanceof Array)
+    console.log("array");
+
+
+
