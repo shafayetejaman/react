@@ -1,8 +1,11 @@
+import { log } from "console";
 import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Replace this URI with your actual MongoDB connection string
-const uri = "mongodb+srv://admin:Zz5vTLkFxXsmu.s@cluster0.sgzbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const uri = `mongodb+srv://admin:${process.env.PASS}@cluster0.sgzbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+log(process.env.PASS)
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
     serverApi: {

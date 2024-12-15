@@ -37,26 +37,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var console_1 = require("console");
-var _a = require('mongodb'), MongoClient = _a.MongoClient, ServerApiVersion = _a.ServerApiVersion;
-var uri = "mongodb+srv://admin:Zz5vTLkFxXsmu.s@cluster0.sgzbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+var mongodb_1 = require("mongodb");
+var dotenv_1 = require("dotenv");
+dotenv_1.default.config();
+// Replace this URI with your actual MongoDB connection string
+var uri = "mongodb+srv://admin:".concat(process.env.PASS, "@cluster0.sgzbq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+(0, console_1.log)(process.env.PASS);
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-var client = new MongoClient(uri, {
+var client = new mongodb_1.MongoClient(uri, {
     serverApi: {
-        version: ServerApiVersion.v1,
+        version: mongodb_1.ServerApiVersion.v1,
         strict: true,
         deprecationErrors: true,
     }
 });
 function run() {
     return __awaiter(this, void 0, void 0, function () {
+        var collection, result, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, , 3, 5]);
-                    // Connect the client to the server	(optional starting in v4.7)
+                    _a.trys.push([0, 4, 5, 7]);
+                    // Connect the client to the server (optional starting in v4.7)
                     return [4 /*yield*/, client.connect()];
                 case 1:
-                    // Connect the client to the server	(optional starting in v4.7)
+                    // Connect the client to the server (optional starting in v4.7)
                     _a.sent();
                     // Send a ping to confirm a successful connection
                     return [4 /*yield*/, client.db("admin").command({ ping: 1 })];
@@ -64,18 +69,28 @@ function run() {
                     // Send a ping to confirm a successful connection
                     _a.sent();
                     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-                    return [3 /*break*/, 5];
-                case 3: 
+                    collection = client.db("bank").collection("account");
+                    return [4 /*yield*/, collection.find({ name: "Lorene Newman" }).limit(3).toArray()];
+                case 3:
+                    result = _a.sent();
+                    console.log(result);
+                    return [3 /*break*/, 7];
+                case 4:
+                    error_1 = _a.sent();
+                    console.error("An error occurred while connecting to MongoDB:", error_1);
+                    return [3 /*break*/, 7];
+                case 5: 
                 // Ensures that the client will close when you finish/error
                 return [4 /*yield*/, client.close()];
-                case 4:
+                case 6:
                     // Ensures that the client will close when you finish/error
                     _a.sent();
+                    console.log("MongoDB connection closed.");
                     return [7 /*endfinally*/];
-                case 5: return [2 /*return*/];
+                case 7: return [2 /*return*/];
             }
         });
     });
 }
-run().catch(console.dir);
-(0, console_1.log)("hi");
+// Run the function
+run().catch(console.error);
